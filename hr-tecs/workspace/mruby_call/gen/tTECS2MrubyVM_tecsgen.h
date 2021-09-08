@@ -38,7 +38,7 @@ typedef struct tag_tTECS2MrubyVM_CB {
     tTECS2MrubyVM_INIB  *_inib;
     /* call port #_NEP_# */ 
     /* var #_VA_# */ 
-    void*          yamashina;
+    mrb_value*     yamashina;
     mrb_state*     mrb;
     mrbc_context*  context;
 }  tTECS2MrubyVM_CB;
@@ -52,7 +52,7 @@ typedef struct tag_tTECS2MrubyVM_CB *tTECS2MrubyVM_IDX;
 void         tTECS2MrubyVM_eTECS2MrubyVM_init(tTECS2MrubyVM_IDX idx);
 mrb_state*   tTECS2MrubyVM_eTECS2MrubyVM_get_mrb(tTECS2MrubyVM_IDX idx);
 void         tTECS2MrubyVM_eTECS2MrubyVM_fin(tTECS2MrubyVM_IDX idx);
-void*        tTECS2MrubyVM_eTECS2MrubyVM_instance_create(tTECS2MrubyVM_IDX idx);
+mrb_value*   tTECS2MrubyVM_eTECS2MrubyVM_instance_create(tTECS2MrubyVM_IDX idx);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -23,7 +23,7 @@ struct tag_sTECS2MrubyVM_VMT {
     void           (*init__T)( const struct tag_sTECS2MrubyVM_VDES *edp );
     mrb_state*     (*get_mrb__T)( const struct tag_sTECS2MrubyVM_VDES *edp );
     void           (*fin__T)( const struct tag_sTECS2MrubyVM_VDES *edp );
-    void*          (*instance_create__T)( const struct tag_sTECS2MrubyVM_VDES *edp );
+    mrb_value*     (*instance_create__T)( const struct tag_sTECS2MrubyVM_VDES *edp );
 };
 
 /* シグニチャディスクリプタ(動的結合用) #_SDES_# */

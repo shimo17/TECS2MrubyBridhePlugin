@@ -22,6 +22,7 @@ class Ryo
 	end
 
 	def hyoji
-		@lcd.print "gunma_saitama_kyoto_university"
+		#@lcd.print "gunma_saitama_university"
+		return "a"
 	end
 end

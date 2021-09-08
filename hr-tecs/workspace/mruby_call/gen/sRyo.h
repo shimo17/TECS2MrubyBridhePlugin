@@ -5,4 +5,4 @@
 
 #include "global_tecsgen.hตþลิปิ"
 
-void  hyoji( );
+char  hyoji( );

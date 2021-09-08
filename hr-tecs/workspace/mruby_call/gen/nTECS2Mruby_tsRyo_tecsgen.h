@@ -47,7 +47,7 @@ typedef const struct tag_nTECS2Mruby_tsRyo_INIB *nTECS2Mruby_tsRyo_IDX;
 
 /* 受け口関数プロトタイプ宣言 #_EPP_# */
 /* sRyo */
-void         nTECS2Mruby_tsRyo_eEnt_hyoji(nTECS2Mruby_tsRyo_IDX idx);
+char         nTECS2Mruby_tsRyo_eEnt_hyoji(nTECS2Mruby_tsRyo_IDX idx);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

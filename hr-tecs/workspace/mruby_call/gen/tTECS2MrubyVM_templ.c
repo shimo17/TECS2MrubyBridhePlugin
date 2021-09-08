@@ -11,7 +11,7 @@
  *
  * 属性アクセスマクロ #_CAAM_#
  * irep             const uint8_t*   ATTR_irep       
- * yamashina        void*            VAR_yamashina   
+ * yamashina        mrb_value*       VAR_yamashina   
  * mrb              mrb_state*       VAR_mrb         
  * context          mrbc_context*    VAR_context     
  *
@@ -99,7 +99,7 @@ eTECS2MrubyVM_fin(CELLIDX idx)
  * global_name:  tTECS2MrubyVM_eTECS2MrubyVM_instance_create
  * oneway:       false
  * #[</ENTRY_FUNC>]# */
-void*
+mrb_value*
 eTECS2MrubyVM_instance_create(CELLIDX idx)
 {
 	CELLCB	*p_cellcb;

@@ -10,7 +10,7 @@
  *   void           cMethodCall_init( );
  *   mrb_state*     cMethodCall_get_mrb( );
  *   void           cMethodCall_fin( );
- *   void*          cMethodCall_instance_create( );
+ *   mrb_value*     cMethodCall_instance_create( );
  *
  * #[</PREAMBLE>]# */
 
@@ -36,12 +36,14 @@
  * global_name:  nTECS2Mruby_tsRyo_eEnt_hyoji
  * oneway:       false
  * #[</ENTRY_FUNC>]# */
-void
+char
 eEnt_hyoji(CELLIDX idx)
 {
+  char  retval;
   CELLCB    *p_cellcb;
   mrb_state *mrb = cMethodCall_get_mrb();
   mrb_value *yamashina = cMethodCall_instance_create( );
+  mrb_value saitama = *yamashina;
   if( VALID_IDX( idx ) ){
     p_cellcb = GET_CELLCB(idx);
   }else{
@@ -53,7 +55,7 @@ eEnt_hyoji(CELLIDX idx)
   // struct RClass *shimo = mrb_class_get(mrb, "Ryo");
   // mrb_value shimo_value = mrb_obj_value(shimo);  
   // mrb_value  yamashina = mrb_funcall(mrb, shimo_value, "new", 0);  
-  mrb_funcall(mrb ,yamashina, "hyoji", 0);
+  mrb_funcall(mrb ,saitama, "hyoji", 0);
 }
 
 /* #[<POSTAMBLE>]#

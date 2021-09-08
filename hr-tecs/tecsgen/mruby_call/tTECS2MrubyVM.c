@@ -42,10 +42,13 @@ mrb_init_mrb(CELLCB	*p_cellcb, mrb_state *mrb, mrbc_context *c){
         exit(0);
     }
 }
-mrb_value*
-eTECS2MrubyVM_instance_create(CELLIDX idx);
-{
-	struct RClass *shimo = mrb_class_get(VAR_mrb, "Ryo");
-	mrb_value shimo_value = mrb_obj_value(shimo);  
-	mrb_value VAR_yamashina = mrb_funcall(VAR_mrb, shimo_value, "new", 0); 
-}
+ mrb_value*
+ eTECS2MrubyVM_instance_create(CELLIDX idx);
+ {
+ 	CELLCB	*p_cellcb = GET_CELLCB(idx);
+ 	struct RClass *shimo = mrb_class_get(VAR_mrb, "Ryo");
+ 	mrb_value shimo_value = mrb_obj_value(shimo);  
+    mrb_value VAR_yamashina = mrb_funcall(VAR_mrb, shimo_value, "new", 0); 
+    return VAR_yamashina;
+
+ }
