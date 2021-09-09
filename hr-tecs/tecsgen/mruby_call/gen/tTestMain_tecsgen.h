@@ -80,6 +80,9 @@ void         tTestMain_eBody_main(tTestMain_IDX idx);
 #define tTestMain_cBody2_Hello( p_that ) \
 	  nTECS2Mruby_tsMcall_eEnt_Hello( \
 	   (nTECS2Mruby_tsMcall_IDX)0 )
+#define tTestMain_cTECS2MrubyVM_instance_create( p_that ) \
+	  tTECS2MrubyVM_eTECS2MrubyVM_instance_create( \
+	   &tTECS2MrubyVM_CB_tab[0] )
 
 #endif /* TOPPERS_CB_TYPE_ONLY */
 

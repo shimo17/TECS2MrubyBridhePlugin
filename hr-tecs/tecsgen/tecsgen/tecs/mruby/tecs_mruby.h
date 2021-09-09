@@ -40,7 +40,7 @@
  *   special keyword __attribute__(x), __extension__
  */
 typedef int mrb_state;
-typedef int mrb_value;
+//typedef int mrb_value;
 typedef int mrb_irep;
 typedef int mrbc_context;
 struct  RClass {int dummy;};

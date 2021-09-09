@@ -27,6 +27,7 @@
 #include <mruby.h>
 #include <mruby/dump.h>
 
+
 #ifndef E_OK
 #define	E_OK	0		/* success */
 #define	E_ID	(-18)	/* illegal ID */
@@ -60,6 +61,9 @@ eBody_main(CELLIDX idx)
 	//cBody2_mcall_lcd( );
 	//cBody2_lcd( );
     cBody2_mcall_lcd("5432112345");
+    //tslp_tsk(10);
+    //wup_tsk();
+    //sleep(5);
     cBody3_hyoji();
 	cTECS2MrubyVM_fin( );
 	//ev3_lcd_draw_string("171717", 0, 0);

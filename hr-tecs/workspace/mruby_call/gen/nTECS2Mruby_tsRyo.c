@@ -56,6 +56,7 @@ eEnt_hyoji(CELLIDX idx)
   // mrb_value shimo_value = mrb_obj_value(shimo);  
   // mrb_value  yamashina = mrb_funcall(mrb, shimo_value, "new", 0);  
   mrb_funcall(mrb ,saitama, "hyoji", 0);
+
 }
 
 /* #[<POSTAMBLE>]#

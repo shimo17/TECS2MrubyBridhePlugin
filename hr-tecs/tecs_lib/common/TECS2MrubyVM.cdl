@@ -1,5 +1,5 @@
 import_C ("tecs_mruby.h");
-
+import_C ("tmp_mruby.h");
 signature sTECS2MrubyVM{
 	void init(void);
 	mrb_state* get_mrb(void);
