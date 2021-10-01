@@ -62,3 +62,14 @@ typedef signed char		schar_t;	/* signed */
 typedef unsigned char	uchar_t;	/* unsigned */
 
 #endif /* end tecs_h__ */
+typedef struct mrb_value {
+  union {
+
+    mrb_float f;
+
+    void *p;
+    mrb_int i;
+    mrb_sym sym;
+  } value;
+  enum mrb_vtype tt;
+} mrb_value;

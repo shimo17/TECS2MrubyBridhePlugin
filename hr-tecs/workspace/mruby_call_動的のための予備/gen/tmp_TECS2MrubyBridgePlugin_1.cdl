@@ -1,0 +1,6 @@
+namespace nTECS2Mruby{
+  celltype tsRyo {
+    call sTECS2MrubyVM cMethodCall;  
+    entry ::sRyo eEnt;
+  };
+};

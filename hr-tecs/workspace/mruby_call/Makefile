@@ -53,8 +53,10 @@ endef
 #
 all:
 
+BUILD_LOADER = 1
+
 # SDのドライブ文字を指定
-SD_DIR = /cygdrive/E/
+SD_DIR = /cygdrive/D/
 
 #
 #  ターゲット略称の定義
@@ -98,7 +100,7 @@ else
     PARAM_SET_NAME = parameter_etrobo.rb
 endif
 
-APP_RB = ./$(APP_NAME)
+APP_RB = $(MRUBY_DIR)/$(APP_NAME)
 
 APP_PARAM_RB = $(MRUBY_DIR)/$(PARAM_NAME)
 APP_PARAM_SET_RB = $(MRUBY_DIR)/$(PARAM_SET_NAME)
@@ -223,7 +225,7 @@ include $(TARGETDIR)/Makefile.ev3
 include $(TARGETDIR)/api/Makefile
 
 # zmodem/Makefile のインクルード
-# include $(PWD)/zmodem/Makefile
+include $(PWD)/zmodem/Makefile
 
 # =begin added by ishikawa for tmp
 USE_SYSLOG = true
