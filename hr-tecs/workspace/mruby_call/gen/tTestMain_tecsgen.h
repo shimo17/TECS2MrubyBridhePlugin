@@ -87,9 +87,6 @@ void         tTestMain_eBody_main(tTestMain_IDX idx);
 #define tTestMain_cTECS2MrubyVM_fin( p_that ) \
 	  tTECS2MrubyVM_eTECS2MrubyVM_fin( \
 	   &tTECS2MrubyVM_CB_tab[0] )
-#define tTestMain_cTECS2MrubyVM_instance_create( p_that ) \
-	  tTECS2MrubyVM_eTECS2MrubyVM_instance_create( \
-	   &tTECS2MrubyVM_CB_tab[0] )
 #define tTestMain_cBody2_mcall_lcd( p_that, x ) \
 	  nTECS2Mruby_tsShimo_eEnt_mcall_lcd( \
 	   &nTECS2Mruby_tsShimo_CB_tab[0], (x) )
@@ -138,8 +135,6 @@ extern "C" {
           ((void)p_cellcb, tTestMain_cTECS2MrubyVM_get_mrb( p_cellcb ))
 #define cTECS2MrubyVM_fin( ) \
           ((void)p_cellcb, tTestMain_cTECS2MrubyVM_fin( p_cellcb ))
-#define cTECS2MrubyVM_instance_create( ) \
-          ((void)p_cellcb, tTestMain_cTECS2MrubyVM_instance_create( p_cellcb ))
 #define cBody2_mcall_lcd( x ) \
           ((void)p_cellcb, tTestMain_cBody2_mcall_lcd( p_cellcb, x ))
 #define cBody3_hyoji( ) \

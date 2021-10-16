@@ -33,7 +33,6 @@ extern "C" {
 /* セル INIB 型宣言 #_CIP_# */
 typedef const struct tag_tTask_INIB {
     /* call port #_TCP_# */
-    struct tag_sTaskBody_VDES const*cBody;
     /* call port #_NEP_# */ 
     /* attribute(RO) #_ATO_# */ 
     ID             id;
@@ -87,11 +86,12 @@ Inline ER           tTask_eiTask_stopOverRunHandler(tTask_IDX idx);
 #define  tTask_CB_TYPE_ONLY
 #define TOPPERS_CB_TYPE_ONLY
 #endif  /* TOPPERS_CB_TYPE_ONLY */
+#include "tTestMain_tecsgen.h"
 #ifdef  tTask_CB_TYPE_ONLY
 #undef TOPPERS_CB_TYPE_ONLY
 #endif /* tTask_CB_TYPE_ONLY */
 #define tTask_ID_BASE               (1)  /* ID のベース  #_NIDB_# */
-#define tTask_N_CELL                (3)  /* セルの個数  #_NCEL_# */
+#define tTask_N_CELL                (1)  /* セルの個数  #_NCEL_# */
 
 /* IDXの正当性チェックマクロ #_CVI_# */
 #define tTask_VALID_IDX(IDX) (1)
@@ -112,8 +112,8 @@ Inline ER           tTask_eiTask_stopOverRunHandler(tTask_IDX idx);
 
  /* 呼び口関数マクロ #_CPM_# */
 #define tTask_cBody_main( p_that ) \
-	  (p_that)->cBody->VMT->main__T( \
-	   (p_that)->cBody )
+	  tTestMain_eBody_main( \
+	   &tTestMain_CB_tab[0] )
 #define tTask_cExceptionBody_main( p_that, pattern ) \
 	  ((void (*)())0)()
 	  /* optional no entry port joined */
@@ -125,23 +125,6 @@ extern "C" {
 #endif /* __cplusplus */
 
 /* 受け口スケルトン関数プロトタイプ宣言（VMT不要最適化により参照するもの） #_EPSP_# */
-/* eTask */
-ER             tTask_eTask_activate_skel( const struct tag_sTask_VDES *epd);
-ER_UINT        tTask_eTask_cancelActivate_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_terminate_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_changePriority_skel( const struct tag_sTask_VDES *epd, PRI priority);
-ER             tTask_eTask_getPriority_skel( const struct tag_sTask_VDES *epd, PRI* p_priority);
-ER             tTask_eTask_refer_skel( const struct tag_sTask_VDES *epd, T_RTSK* pk_taskStatus);
-ER             tTask_eTask_wakeup_skel( const struct tag_sTask_VDES *epd);
-ER_UINT        tTask_eTask_cancelWakeup_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_releaseWait_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_suspend_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_resume_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_raiseException_skel( const struct tag_sTask_VDES *epd, TEXPTN pattern);
-ER             tTask_eTask_referException_skel( const struct tag_sTask_VDES *epd, T_RTEX* pk_rtex);
-ER             tTask_eTask_startOverRunHandler_skel( const struct tag_sTask_VDES *epd, OVRTIM ovrtim);
-ER             tTask_eTask_stopOverRunHandler_skel( const struct tag_sTask_VDES *epd);
-ER             tTask_eTask_referOverRunHandler_skel( const struct tag_sTask_VDES *epd, T_ROVR* pk_rovr);
 
 #ifdef __cplusplus
 }
@@ -168,7 +151,7 @@ ER             tTask_eTask_referOverRunHandler_skel( const struct tag_sTask_VDES
 
 /* 呼び口関数マクロ（短縮形）#_CPMA_# */
 #define cBody_main( ) \
-          tTask_cBody_main( p_cellcb )
+          ((void)p_cellcb, tTask_cBody_main( p_cellcb ))
 #define cExceptionBody_main( pattern ) \
           ((void)p_cellcb, tTask_cExceptionBody_main( p_cellcb, pattern ))
 

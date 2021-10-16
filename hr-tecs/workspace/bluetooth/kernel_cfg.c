@@ -10,7 +10,7 @@
  *  Include Directives (#include)
  */
 
-#include "tEV3Sample.h"
+#include "mruby_call.h"
 #include "csl.h"
 #include "chip_timer.h"
 #include "syssvc/syslog.h"
@@ -22,7 +22,6 @@
 #include "api.cfg.h"
 #include "cb_type_only.h"
 #include "tTask_tecsgen.h"
-#include "tCyclicHandler_tecsgen.h"
 
 /*
  *  Protection Domain Management Functions
@@ -40,7 +39,7 @@ const DOMINIB _kernel_dominib_table[TNUM_DOMID] = {
  *  Task Management Functions
  */
 
-#define TNUM_STSKID	15
+#define TNUM_STSKID	13
 
 const ID _kernel_tmax_tskid = (TMIN_TSKID + TNUM_TSKID - 1);
 const ID _kernel_tmax_stskid = (TMIN_TSKID + TNUM_STSKID - 1);
@@ -56,9 +55,7 @@ static STK_T _kernel_sstack_EV3_INIT_TASK[COUNT_STK_T(STACK_SIZE)] __attribute__
 static STK_T _kernel_sstack_PLATFORM_BUSY_TASK[COUNT_STK_T(STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
 static STK_T _kernel_sstack_EV3RT_LOGTASK[COUNT_STK_T(LOGTASK_STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
 static STK_T _kernel_sstack_APP_INIT_TASK[COUNT_STK_T(DEFAULT_SSTKSZ)] __attribute__((section(".prsv_kernel"),nocommon));
-static STK_T _kernel_sstack_TSKID_tTask_EV3Task[COUNT_STK_T(STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
-static STK_T _kernel_sstack_TSKID_tTask_MrubyTask1[COUNT_STK_T(MRUBY_VM_STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
-static STK_T _kernel_sstack_TSKID_tTask_MrubyTask2[COUNT_STK_T(MRUBY_VM_STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
+static STK_T _kernel_sstack_TSKID_tTask_Task[COUNT_STK_T(MRUBY_VM_STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
 static STK_T _kernel_sstack_ZMODEM_RECV_TASK[COUNT_STK_T(STACK_SIZE)] __attribute__((section(".prsv_kernel"),nocommon));
 
 static STK_T _kernel_ustack_BRICK_BTN_TSK[COUNT_STK_T(4096)] __attribute__((section(".ustack_BRICK_BTN_TSK"),nocommon));
@@ -76,9 +73,7 @@ const TINIB _kernel_tinib_table[TNUM_STSKID] = {
 	{ &_kernel_dominib_kernel, (TA_ACT), (intptr_t)(0), ((TASK)(platform_busy_task)), INT_PRIORITY(TPRI_PLATFORM_BUSY), ROUND_STK_T(STACK_SIZE), _kernel_sstack_PLATFORM_BUSY_TASK, 0, NULL, (TA_NULL), (NULL), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ &_kernel_dominib_kernel, (TA_NULL), (intptr_t)(0), ((TASK)(ev3rt_logtask)), INT_PRIORITY(LOGTASK_PRIORITY), ROUND_STK_T(LOGTASK_STACK_SIZE), _kernel_sstack_EV3RT_LOGTASK, 0, NULL, (TA_NULL), (NULL), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ &_kernel_dominib_table[INDEX_DOM(TDOM_APP)], (TA_ACT), (intptr_t)(0), ((TASK)(_app_init_task)), INT_PRIORITY(TPRI_APP_INIT_TASK), ROUND_STK_T(DEFAULT_SSTKSZ), _kernel_sstack_APP_INIT_TASK, ROUND_STK_T(4096), _kernel_ustack_APP_INIT_TASK, (TA_NULL), (NULL), { TACP(TDOM_APP), TACP(TDOM_APP), TACP(TDOM_APP), TACP(TDOM_APP) }},
-	{ &_kernel_dominib_kernel, (TA_ACT), (intptr_t)(0), ((TASK)(tTask_start_task)), INT_PRIORITY(EV3_PLATFORM_PRIORITY), ROUND_STK_T(STACK_SIZE), _kernel_sstack_TSKID_tTask_EV3Task, 0, NULL, (TA_NULL), (tTask_start_exception), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ &_kernel_dominib_kernel, (TA_ACT), (intptr_t)(1), ((TASK)(tTask_start_task)), INT_PRIORITY(RITEVM_PRIORITY), ROUND_STK_T(MRUBY_VM_STACK_SIZE), _kernel_sstack_TSKID_tTask_MrubyTask1, 0, NULL, (TA_NULL), (tTask_start_exception), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ &_kernel_dominib_kernel, (TA_ACT), (intptr_t)(2), ((TASK)(tTask_start_task)), INT_PRIORITY(RITEVM_PRIORITY), ROUND_STK_T(MRUBY_VM_STACK_SIZE), _kernel_sstack_TSKID_tTask_MrubyTask2, 0, NULL, (TA_NULL), (tTask_start_exception), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
+	{ &_kernel_dominib_kernel, (TA_ACT), (intptr_t)(0), ((TASK)(tTask_start_task)), INT_PRIORITY(10), ROUND_STK_T(MRUBY_VM_STACK_SIZE), _kernel_sstack_TSKID_tTask_Task, 0, NULL, (TA_NULL), (tTask_start_exception), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ &_kernel_dominib_kernel, (TA_NULL), (intptr_t)(0), ((TASK)(zmodem_recv_task)), INT_PRIORITY(TMIN_APP_TPRI), ROUND_STK_T(STACK_SIZE), _kernel_sstack_ZMODEM_RECV_TASK, 0, NULL, (TA_NULL), (NULL), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
 };
 
@@ -87,14 +82,14 @@ TINIB _kernel_atinib_table[48];
 TCB _kernel_tcb_table[TNUM_TSKID];
 
 const ID _kernel_torder_table[TNUM_STSKID] = {
-	LOGTASK, BRICK_BTN_TSK, LCD_REFRESH_TSK, CONSOLE_BTN_TSK, BT_TSK, BT_QOS_TSK, USBMSC_TSK, EV3_INIT_TASK, PLATFORM_BUSY_TASK, EV3RT_LOGTASK, APP_INIT_TASK, TSKID_tTask_EV3Task, TSKID_tTask_MrubyTask1, TSKID_tTask_MrubyTask2, ZMODEM_RECV_TASK
+	LOGTASK, BRICK_BTN_TSK, LCD_REFRESH_TSK, CONSOLE_BTN_TSK, BT_TSK, BT_QOS_TSK, USBMSC_TSK, EV3_INIT_TASK, PLATFORM_BUSY_TASK, EV3RT_LOGTASK, APP_INIT_TASK, TSKID_tTask_Task, ZMODEM_RECV_TASK
 };
 
 /*
  *  Semaphore Functions
  */
 
-#define TNUM_SSEMID	15
+#define TNUM_SSEMID	14
 
 const ID _kernel_tmax_semid = (TMIN_SEMID + TNUM_SEMID - 1);
 const ID _kernel_tmax_ssemid = (TMIN_SEMID + TNUM_SSEMID - 1);
@@ -113,7 +108,6 @@ const ID _kernel_tmax_ssemid = (TMIN_SEMID + TNUM_SSEMID - 1);
 	{ (TA_NULL), (0), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_NULL), (1), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_NULL), (1), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_NULL), (1), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_NULL), (1), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
 };
 
@@ -125,7 +119,7 @@ SEMCB _kernel_semcb_table[TNUM_SEMID];
  *  Eventflag Functions
  */
 
-#define TNUM_SFLGID	5
+#define TNUM_SFLGID	3
 
 const ID _kernel_tmax_flgid = (TMIN_FLGID + TNUM_FLGID - 1);
 const ID _kernel_tmax_sflgid = (TMIN_FLGID + TNUM_SFLGID - 1);
@@ -133,9 +127,7 @@ const ID _kernel_tmax_sflgid = (TMIN_FLGID + TNUM_SFLGID - 1);
 const FLGINIB _kernel_flginib_table[TNUM_SFLGID] = {
 	{ (TA_CLR), (0), { TACP_KERNEL, TACP_SHARED, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_CLR), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_CLR), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_WMUL), (0x00), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_WMUL), (0x00), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
+	{ (TA_CLR), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
 };
 
 FLGINIB _kernel_aflginib_table[16];
@@ -211,7 +203,7 @@ TOPPERS_EMPTY_LABEL(MPFCB, _kernel_mpfcb_table);
  *  Cyclic Handler Functions
  */
 
-#define TNUM_SCYCID	5
+#define TNUM_SCYCID	4
 
 const ID _kernel_tmax_cycid = (TMIN_CYCID + TNUM_CYCID - 1);
 const ID _kernel_tmax_scycid = (TMIN_CYCID + TNUM_SCYCID - 1);
@@ -220,8 +212,7 @@ const CYCINIB _kernel_cycinib_table[TNUM_SCYCID] = {
 	{ (TA_STA), (intptr_t)(NULL), (bt_sio_cyc), (5), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_STA), (intptr_t)(&dbsio_spp_master_test), (dbsio_cyc), (5), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
 	{ (TA_NULL), (intptr_t)(0), (brick_button_cyc), (10), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_NULL), (intptr_t)(0), (bluetooth_dma_cyc), (1), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }},
-	{ (TA_STA), (intptr_t)(&tCyclicHandler_INIB_tab[0]), (tCyclicHandler_start), (1), (1), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
+	{ (TA_NULL), (intptr_t)(0), (bluetooth_dma_cyc), (1), (0), { TACP_KERNEL, TACP_KERNEL, TACP_KERNEL, TACP_KERNEL }}
 };
 
 CYCINIB _kernel_acycinib_table[16];

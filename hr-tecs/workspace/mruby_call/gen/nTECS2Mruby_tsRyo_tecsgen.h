@@ -47,7 +47,7 @@ typedef const struct tag_nTECS2Mruby_tsRyo_INIB *nTECS2Mruby_tsRyo_IDX;
 
 /* 受け口関数プロトタイプ宣言 #_EPP_# */
 /* sRyo */
-char         nTECS2Mruby_tsRyo_eEnt_hyoji(nTECS2Mruby_tsRyo_IDX idx);
+void         nTECS2Mruby_tsRyo_eEnt_hyoji(nTECS2Mruby_tsRyo_IDX idx);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
@@ -82,9 +82,6 @@ char         nTECS2Mruby_tsRyo_eEnt_hyoji(nTECS2Mruby_tsRyo_IDX idx);
 	   &tTECS2MrubyVM_CB_tab[0] )
 #define nTECS2Mruby_tsRyo_cMethodCall_fin( p_that ) \
 	  tTECS2MrubyVM_eTECS2MrubyVM_fin( \
-	   &tTECS2MrubyVM_CB_tab[0] )
-#define nTECS2Mruby_tsRyo_cMethodCall_instance_create( p_that ) \
-	  tTECS2MrubyVM_eTECS2MrubyVM_instance_create( \
 	   &tTECS2MrubyVM_CB_tab[0] )
 
 #endif /* TOPPERS_CB_TYPE_ONLY */
@@ -129,8 +126,6 @@ extern "C" {
           ((void)p_cellcb, nTECS2Mruby_tsRyo_cMethodCall_get_mrb( p_cellcb ))
 #define cMethodCall_fin( ) \
           ((void)p_cellcb, nTECS2Mruby_tsRyo_cMethodCall_fin( p_cellcb ))
-#define cMethodCall_instance_create( ) \
-          ((void)p_cellcb, nTECS2Mruby_tsRyo_cMethodCall_instance_create( p_cellcb ))
 
 
 

@@ -1,7 +1,7 @@
 /* cfg1_out.c */
 #define TOPPERS_CFG1_OUT  1
 #include "kernel/kernel_int.h"
-#include "tEV3Sample.h"
+#include "mruby_call.h"
 #include "csl.h"
 #include "chip_timer.h"
 #include "syssvc/syslog.h"
@@ -13,7 +13,6 @@
 #include "api.cfg.h"
 #include "cb_type_only.h"
 #include "tTask_tecsgen.h"
-#include "tCyclicHandler_tecsgen.h"
 
 
 #ifdef INT64_MAX
@@ -572,7 +571,7 @@ const unsigned_t TOPPERS_cfg_offsetof_DOMINIB_p_section_table = ( unsigned_t )of
 
 #define TDOM_APP	1
 
-/* #include "tEV3Sample.h" */
+/* #include "mruby_call.h" */
 /* #include "csl.h" */
 
 #ifndef TOPPERS_cfg_valueof_TDOM_KERNEL_DEFINED
@@ -2055,418 +2054,69 @@ const char TOPPERS_cfg_valueof_module_252[] = "ev3api_speaker.o";
 const unsigned_t TOPPERS_cfg_static_api_253 = 253;
 const char TOPPERS_cfg_valueof_section_253[] = ".init_array"; const unsigned_t TOPPERS_cfg_valueof_mematr_253 = ( unsigned_t )( TA_MEMPRSV ); const char TOPPERS_cfg_valueof_memreg_253[] = "ROM"; const unsigned_t TOPPERS_cfg_valueof_acptn1_253 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_253 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_253 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_253 = ( unsigned_t )( TACP_KERNEL ); /* #include "cb_type_only.h" */
 /* #include "tTask_tecsgen.h" */
-/* #include "tCyclicHandler_tecsgen.h" */
 
-#line 4 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_254 = 254;
-const char TOPPERS_cfg_valueof_module_254[] = "balancer.o"; 
-#line 5 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_255 = 255;
-const char TOPPERS_cfg_valueof_module_255[] = "balancer_param-bigtire.o"; 
 #ifndef TOPPERS_cfg_valueof_TDOM_KERNEL_DEFINED
 #define TOPPERS_cfg_valueof_TDOM_KERNEL_DEFINED 1
 
-#line 9 "gen/tecsgen.cfg"
+#line 6 "gen/tecsgen.cfg"
 const unsigned_t TOPPERS_cfg_valueof_TDOM_KERNEL = ( unsigned_t ) (-1);
 
 #endif
 #define TOPPERS_cfg_inside_of_TDOM_KERNEL
-const unsigned_t TOPPERS_cfg_valueof_DOMAIN_256 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 1 "gen/tecsgen_rDomainEV3.cfg"
+const unsigned_t TOPPERS_cfg_valueof_DOMAIN_254 = ( unsigned_t ) ( TDOM_KERNEL );
+#line 1 "gen/tecsgen_rKernel.cfg"
+const unsigned_t TOPPERS_cfg_static_api_254 = 254;
+#define TSKID_tTask_Task	(<>)
+
+#line 1 "gen/tecsgen_rKernel.cfg"
+const unsigned_t TOPPERS_cfg_valueof_tskatr_254 = ( unsigned_t )( TA_ACT ); const signed_t TOPPERS_cfg_valueof_itskpri_254 = ( signed_t )( 10 ); const unsigned_t TOPPERS_cfg_valueof_stksz_254 = ( unsigned_t )( MRUBY_VM_STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_255 = ( unsigned_t ) ( TDOM_KERNEL );
+#line 2 "gen/tecsgen_rKernel.cfg"
+const unsigned_t TOPPERS_cfg_static_api_255 = 255;
+const unsigned_t TOPPERS_cfg_valueof_texatr_255 = ( unsigned_t )( TA_NULL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_256 = ( unsigned_t ) ( TDOM_KERNEL );
+#line 3 "gen/tecsgen_rKernel.cfg"
 const unsigned_t TOPPERS_cfg_static_api_256 = 256;
-#define TSKID_tTask_EV3Task	(<>)
-
-#line 1 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_tskatr_256 = ( unsigned_t )( TA_ACT ); const signed_t TOPPERS_cfg_valueof_itskpri_256 = ( signed_t )( EV3_PLATFORM_PRIORITY ); const unsigned_t TOPPERS_cfg_valueof_stksz_256 = ( unsigned_t )( STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_257 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 2 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_257 = 257;
-const unsigned_t TOPPERS_cfg_valueof_texatr_257 = ( unsigned_t )( TA_NULL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_258 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 3 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_258 = 258;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_258 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_258 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_258 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_258 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_259 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 4 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_259 = 259;
-#define TSKID_tTask_MrubyTask1	(<>)
-
-#line 4 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_tskatr_259 = ( unsigned_t )( TA_ACT ); const signed_t TOPPERS_cfg_valueof_itskpri_259 = ( signed_t )( RITEVM_PRIORITY ); const unsigned_t TOPPERS_cfg_valueof_stksz_259 = ( unsigned_t )( MRUBY_VM_STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_260 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 5 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_260 = 260;
-const unsigned_t TOPPERS_cfg_valueof_texatr_260 = ( unsigned_t )( TA_NULL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_261 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 6 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_261 = 261;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_261 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_261 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_261 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_261 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_262 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 7 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_262 = 262;
-#define TSKID_tTask_MrubyTask2	(<>)
-
-#line 7 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_tskatr_262 = ( unsigned_t )( TA_ACT ); const signed_t TOPPERS_cfg_valueof_itskpri_262 = ( signed_t )( RITEVM_PRIORITY ); const unsigned_t TOPPERS_cfg_valueof_stksz_262 = ( unsigned_t )( MRUBY_VM_STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_263 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 8 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_263 = 263;
-const unsigned_t TOPPERS_cfg_valueof_texatr_263 = ( unsigned_t )( TA_NULL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_264 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 9 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_264 = 264;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_264 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_264 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_264 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_264 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_265 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 10 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_265 = 265;
-const char TOPPERS_cfg_valueof_module_265[] = "tMotor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_266 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 11 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_266 = 266;
-const char TOPPERS_cfg_valueof_module_266[] = "tMotor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_267 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 12 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_267 = 267;
-const char TOPPERS_cfg_valueof_module_267[] = "tLCD_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_268 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 13 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_268 = 268;
-const char TOPPERS_cfg_valueof_module_268[] = "tLCD.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_269 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 14 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_269 = 269;
-const char TOPPERS_cfg_valueof_module_269[] = "tLED_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_270 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 15 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_270 = 270;
-const char TOPPERS_cfg_valueof_module_270[] = "tLED.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_271 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 16 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_271 = 271;
-const char TOPPERS_cfg_valueof_module_271[] = "tButton_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_272 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 17 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_272 = 272;
-const char TOPPERS_cfg_valueof_module_272[] = "tButton.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_273 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 18 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_273 = 273;
-const char TOPPERS_cfg_valueof_module_273[] = "tBattery_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_274 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 19 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_274 = 274;
-const char TOPPERS_cfg_valueof_module_274[] = "tBattery.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_275 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 20 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_275 = 275;
-const char TOPPERS_cfg_valueof_module_275[] = "tSpeaker_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_276 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 21 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_276 = 276;
-const char TOPPERS_cfg_valueof_module_276[] = "tSpeaker.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_277 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 22 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_277 = 277;
-const char TOPPERS_cfg_valueof_module_277[] = "tUltrasonicSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_278 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 23 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_278 = 278;
-const char TOPPERS_cfg_valueof_module_278[] = "tUltrasonicSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_279 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 24 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_279 = 279;
-const char TOPPERS_cfg_valueof_module_279[] = "tGyroSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_280 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 25 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_280 = 280;
-const char TOPPERS_cfg_valueof_module_280[] = "tGyroSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_281 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 26 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_281 = 281;
-const char TOPPERS_cfg_valueof_module_281[] = "tColorSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_282 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 27 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_282 = 282;
-const char TOPPERS_cfg_valueof_module_282[] = "tColorSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_283 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 28 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_283 = 283;
-const char TOPPERS_cfg_valueof_module_283[] = "tTouchSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_284 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 29 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_284 = 284;
-const char TOPPERS_cfg_valueof_module_284[] = "tTouchSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_285 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 30 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_285 = 285;
-const char TOPPERS_cfg_valueof_module_285[] = "tBalancer_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_286 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 31 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_286 = 286;
-const char TOPPERS_cfg_valueof_module_286[] = "tBalancer.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_287 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 32 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_287 = 287;
-const char TOPPERS_cfg_valueof_module_287[] = "tSharedMemory_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_288 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 33 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_288 = 288;
-const char TOPPERS_cfg_valueof_module_288[] = "tSharedMemory.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_289 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 34 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_289 = 289;
-const char TOPPERS_cfg_valueof_module_289[] = "nMruby_tsKernel_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_290 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 35 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_290 = 290;
-const char TOPPERS_cfg_valueof_module_290[] = "nMruby_tsKernel.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_291 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 36 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_291 = 291;
-const char TOPPERS_cfg_valueof_module_291[] = "nMruby_tsMotor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_292 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 37 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_292 = 292;
-const char TOPPERS_cfg_valueof_module_292[] = "nMruby_tsMotor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_293 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 38 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_293 = 293;
-const char TOPPERS_cfg_valueof_module_293[] = "nMruby_tsLCD_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_294 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 39 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_294 = 294;
-const char TOPPERS_cfg_valueof_module_294[] = "nMruby_tsLCD.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_295 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 40 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_295 = 295;
-const char TOPPERS_cfg_valueof_module_295[] = "nMruby_tsLED_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_296 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 41 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_296 = 296;
-const char TOPPERS_cfg_valueof_module_296[] = "nMruby_tsLED.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_297 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 42 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_297 = 297;
-const char TOPPERS_cfg_valueof_module_297[] = "nMruby_tsButton_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_298 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 43 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_298 = 298;
-const char TOPPERS_cfg_valueof_module_298[] = "nMruby_tsButton.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_299 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 44 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_299 = 299;
-const char TOPPERS_cfg_valueof_module_299[] = "nMruby_tsBattery_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_300 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 45 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_300 = 300;
-const char TOPPERS_cfg_valueof_module_300[] = "nMruby_tsBattery.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_301 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 46 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_301 = 301;
-const char TOPPERS_cfg_valueof_module_301[] = "nMruby_tsSpeaker_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_302 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 47 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_302 = 302;
-const char TOPPERS_cfg_valueof_module_302[] = "nMruby_tsSpeaker.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_303 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 48 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_303 = 303;
-const char TOPPERS_cfg_valueof_module_303[] = "nMruby_tsUltrasonicSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_304 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 49 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_304 = 304;
-const char TOPPERS_cfg_valueof_module_304[] = "nMruby_tsUltrasonicSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_305 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 50 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_305 = 305;
-const char TOPPERS_cfg_valueof_module_305[] = "nMruby_tsGyroSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_306 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 51 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_306 = 306;
-const char TOPPERS_cfg_valueof_module_306[] = "nMruby_tsGyroSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_307 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 52 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_307 = 307;
-const char TOPPERS_cfg_valueof_module_307[] = "nMruby_tsColorSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_308 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 53 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_308 = 308;
-const char TOPPERS_cfg_valueof_module_308[] = "nMruby_tsColorSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_309 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 54 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_309 = 309;
-const char TOPPERS_cfg_valueof_module_309[] = "nMruby_tsTouchSensor_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_310 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 55 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_310 = 310;
-const char TOPPERS_cfg_valueof_module_310[] = "nMruby_tsTouchSensor.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_311 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 56 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_311 = 311;
-const char TOPPERS_cfg_valueof_module_311[] = "nMruby_tsBalancer_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_312 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 57 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_312 = 312;
-const char TOPPERS_cfg_valueof_module_312[] = "nMruby_tsBalancer.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_313 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 58 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_313 = 313;
-const char TOPPERS_cfg_valueof_module_313[] = "nMruby_tsSharedMemory_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_314 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 59 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_314 = 314;
-const char TOPPERS_cfg_valueof_module_314[] = "nMruby_tsSharedMemory.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_315 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 60 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_315 = 315;
-const char TOPPERS_cfg_valueof_module_315[] = "tRiteVMSchedulerMain_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_316 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 61 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_316 = 316;
-const char TOPPERS_cfg_valueof_module_316[] = "tRiteVMSchedulerMain.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_317 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 62 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_317 = 317;
-const char TOPPERS_cfg_valueof_module_317[] = "tEV3Platform_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_318 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 63 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_318 = 318;
-const char TOPPERS_cfg_valueof_module_318[] = "tEV3Platform.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_319 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 64 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_319 = 319;
-const char TOPPERS_cfg_valueof_module_319[] = "tReset_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_320 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 65 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_320 = 320;
-const char TOPPERS_cfg_valueof_module_320[] = "tReset.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_321 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 66 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_321 = 321;
-const char TOPPERS_cfg_valueof_module_321[] = "nMruby_tRiteVMBluetooth_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_322 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 67 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_322 = 322;
-const char TOPPERS_cfg_valueof_module_322[] = "nMruby_tRiteVMBluetooth.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_323 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 68 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_323 = 323;
-const char TOPPERS_cfg_valueof_module_323[] = "tTLSFMalloc_rDomainEV3_tecsgen.o"; const unsigned_t TOPPERS_cfg_valueof_DOMAIN_324 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 69 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_324 = 324;
-#define CYCHDLRID_tCyclicHandler_RiteVMScheduler_CyclicHandler	(<>)
-
-#line 69 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_cycatr_324 = ( unsigned_t )( TA_STA ); const unsigned_t TOPPERS_cfg_valueof_cyctim_324 = ( unsigned_t )( 1 ); const unsigned_t TOPPERS_cfg_valueof_cycphs_324 = ( unsigned_t )( 1 ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_325 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 70 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_325 = 325;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_325 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_325 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_325 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_325 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_326 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 71 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_326 = 326;
-#define SEMID_tSemaphore_Semaphore	(<>)
-
-#line 71 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_sematr_326 = ( unsigned_t )( TA_NULL ); const unsigned_t TOPPERS_cfg_valueof_isemcnt_326 = ( unsigned_t )( 1 ); const unsigned_t TOPPERS_cfg_valueof_maxsem_326 = ( unsigned_t )( 1 ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_327 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 72 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_327 = 327;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_327 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_327 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_327 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_327 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_328 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 73 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_328 = 328;
-#define FLGID_tEventflag_Eventflag_begin	(<>)
-
-#line 73 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_flgatr_328 = ( unsigned_t )( TA_WMUL ); const unsigned_t TOPPERS_cfg_valueof_iflgptn_328 = ( unsigned_t )( 0x00 ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_329 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 74 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_329 = 329;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_329 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_329 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_329 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_329 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_330 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 75 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_330 = 330;
-#define FLGID_tEventflag_Eventflag_end	(<>)
-
-#line 75 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_valueof_flgatr_330 = ( unsigned_t )( TA_WMUL ); const unsigned_t TOPPERS_cfg_valueof_iflgptn_330 = ( unsigned_t )( 0x00 ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_331 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 76 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_331 = 331;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_331 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_331 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_331 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_331 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_332 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 77 "gen/tecsgen_rDomainEV3.cfg"
-const unsigned_t TOPPERS_cfg_static_api_332 = 332;
-const unsigned_t TOPPERS_cfg_valueof_acptn1_332 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_332 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_332 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_332 = ( unsigned_t )( TACP_KERNEL ); 
+const unsigned_t TOPPERS_cfg_valueof_acptn1_256 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_256 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn3_256 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_256 = ( unsigned_t )( TACP_KERNEL ); 
 #ifndef TOPPERS_cfg_inside_of_TDOM_KERNEL
 
-#line 11 "gen/tecsgen.cfg"
+#line 8 "gen/tecsgen.cfg"
 #error syntax error
 #endif
 #undef TOPPERS_cfg_inside_of_TDOM_KERNEL
 
 
+#line 9 "gen/tecsgen.cfg"
+const unsigned_t TOPPERS_cfg_static_api_257 = 257;
+const char TOPPERS_cfg_valueof_module_257[] = "tTECS2MrubyVM_tecsgen.o"; 
+#line 10 "gen/tecsgen.cfg"
+const unsigned_t TOPPERS_cfg_static_api_258 = 258;
+const char TOPPERS_cfg_valueof_module_258[] = "tTECS2MrubyVM.o"; 
+#line 11 "gen/tecsgen.cfg"
+const unsigned_t TOPPERS_cfg_static_api_259 = 259;
+const char TOPPERS_cfg_valueof_module_259[] = "nTECS2Mruby_tsShimo_tecsgen.o"; 
 #line 12 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_333 = 333;
-const char TOPPERS_cfg_valueof_module_333[] = "nMruby_tsKernel_Initializer_tecsgen.o"; 
+const unsigned_t TOPPERS_cfg_static_api_260 = 260;
+const char TOPPERS_cfg_valueof_module_260[] = "nTECS2Mruby_tsShimo.o"; 
 #line 13 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_334 = 334;
-const char TOPPERS_cfg_valueof_module_334[] = "nMruby_tsKernel_Initializer.o"; 
+const unsigned_t TOPPERS_cfg_static_api_261 = 261;
+const char TOPPERS_cfg_valueof_module_261[] = "tTestMain_tecsgen.o"; 
 #line 14 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_335 = 335;
-const char TOPPERS_cfg_valueof_module_335[] = "nMruby_tsMotor_Initializer_tecsgen.o"; 
-#line 15 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_336 = 336;
-const char TOPPERS_cfg_valueof_module_336[] = "nMruby_tsMotor_Initializer.o"; 
-#line 16 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_337 = 337;
-const char TOPPERS_cfg_valueof_module_337[] = "nMruby_tsLCD_Initializer_tecsgen.o"; 
-#line 17 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_338 = 338;
-const char TOPPERS_cfg_valueof_module_338[] = "nMruby_tsLCD_Initializer.o"; 
-#line 18 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_339 = 339;
-const char TOPPERS_cfg_valueof_module_339[] = "nMruby_tsLED_Initializer_tecsgen.o"; 
-#line 19 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_340 = 340;
-const char TOPPERS_cfg_valueof_module_340[] = "nMruby_tsLED_Initializer.o"; 
-#line 20 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_341 = 341;
-const char TOPPERS_cfg_valueof_module_341[] = "nMruby_tsButton_Initializer_tecsgen.o"; 
-#line 21 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_342 = 342;
-const char TOPPERS_cfg_valueof_module_342[] = "nMruby_tsButton_Initializer.o"; 
-#line 22 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_343 = 343;
-const char TOPPERS_cfg_valueof_module_343[] = "nMruby_tsBattery_Initializer_tecsgen.o"; 
-#line 23 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_344 = 344;
-const char TOPPERS_cfg_valueof_module_344[] = "nMruby_tsBattery_Initializer.o"; 
-#line 24 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_345 = 345;
-const char TOPPERS_cfg_valueof_module_345[] = "nMruby_tsSpeaker_Initializer_tecsgen.o"; 
-#line 25 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_346 = 346;
-const char TOPPERS_cfg_valueof_module_346[] = "nMruby_tsSpeaker_Initializer.o"; 
-#line 26 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_347 = 347;
-const char TOPPERS_cfg_valueof_module_347[] = "nMruby_tsUltrasonicSensor_Initializer_tecsgen.o"; 
-#line 27 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_348 = 348;
-const char TOPPERS_cfg_valueof_module_348[] = "nMruby_tsUltrasonicSensor_Initializer.o"; 
-#line 28 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_349 = 349;
-const char TOPPERS_cfg_valueof_module_349[] = "nMruby_tsGyroSensor_Initializer_tecsgen.o"; 
-#line 29 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_350 = 350;
-const char TOPPERS_cfg_valueof_module_350[] = "nMruby_tsGyroSensor_Initializer.o"; 
-#line 30 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_351 = 351;
-const char TOPPERS_cfg_valueof_module_351[] = "nMruby_tsColorSensor_Initializer_tecsgen.o"; 
-#line 31 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_352 = 352;
-const char TOPPERS_cfg_valueof_module_352[] = "nMruby_tsColorSensor_Initializer.o"; 
-#line 32 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_353 = 353;
-const char TOPPERS_cfg_valueof_module_353[] = "nMruby_tsTouchSensor_Initializer_tecsgen.o"; 
-#line 33 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_354 = 354;
-const char TOPPERS_cfg_valueof_module_354[] = "nMruby_tsTouchSensor_Initializer.o"; 
-#line 34 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_355 = 355;
-const char TOPPERS_cfg_valueof_module_355[] = "nMruby_tsBalancer_Initializer_tecsgen.o"; 
-#line 35 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_356 = 356;
-const char TOPPERS_cfg_valueof_module_356[] = "nMruby_tsBalancer_Initializer.o"; 
-#line 36 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_357 = 357;
-const char TOPPERS_cfg_valueof_module_357[] = "nMruby_tsSharedMemory_Initializer_tecsgen.o"; 
-#line 37 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_358 = 358;
-const char TOPPERS_cfg_valueof_module_358[] = "nMruby_tsSharedMemory_Initializer.o"; 
-#line 38 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_359 = 359;
-const char TOPPERS_cfg_valueof_module_359[] = "nMruby_tIntPointer_tecsgen.o"; 
-#line 39 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_360 = 360;
-const char TOPPERS_cfg_valueof_module_360[] = "nMruby_tIntPointer.o"; 
-#line 40 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_361 = 361;
-const char TOPPERS_cfg_valueof_module_361[] = "nMruby_tULongPointer_tecsgen.o"; 
-#line 41 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_362 = 362;
-const char TOPPERS_cfg_valueof_module_362[] = "nMruby_tULongPointer.o"; 
-#line 42 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_363 = 363;
-const char TOPPERS_cfg_valueof_module_363[] = "nMruby_tInt32Pointer_tecsgen.o"; 
-#line 43 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_364 = 364;
-const char TOPPERS_cfg_valueof_module_364[] = "nMruby_tInt32Pointer.o"; 
-#line 44 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_365 = 365;
-const char TOPPERS_cfg_valueof_module_365[] = "nMruby_tCharPointer_tecsgen.o"; 
-#line 45 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_366 = 366;
-const char TOPPERS_cfg_valueof_module_366[] = "nMruby_tCharPointer.o"; 
-#line 46 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_367 = 367;
-const char TOPPERS_cfg_valueof_module_367[] = "nMruby_tUInt16Pointer_tecsgen.o"; 
-#line 47 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_368 = 368;
-const char TOPPERS_cfg_valueof_module_368[] = "nMruby_tUInt16Pointer.o"; 
-#line 48 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_369 = 369;
-const char TOPPERS_cfg_valueof_module_369[] = "nMruby_tInt8Pointer_tecsgen.o"; 
-#line 49 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_370 = 370;
-const char TOPPERS_cfg_valueof_module_370[] = "nMruby_tInt8Pointer.o"; 
-#line 50 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_371 = 371;
-const char TOPPERS_cfg_valueof_module_371[] = "nMruby_tTECSInitializer_tecsgen.o"; 
-#line 51 "gen/tecsgen.cfg"
-const unsigned_t TOPPERS_cfg_static_api_372 = 372;
-const char TOPPERS_cfg_valueof_module_372[] = "nMruby_tTECSInitializer.o"; 
+const unsigned_t TOPPERS_cfg_static_api_262 = 262;
+const char TOPPERS_cfg_valueof_module_262[] = "tTestMain.o"; 
 #ifndef TOPPERS_cfg_valueof_TDOM_KERNEL_DEFINED
 #define TOPPERS_cfg_valueof_TDOM_KERNEL_DEFINED 1
 
-#line 12 "tEV3Sample.cfg"
+#line 12 "mruby_call.cfg"
 const unsigned_t TOPPERS_cfg_valueof_TDOM_KERNEL = ( unsigned_t ) (-1);
 
 #endif
 #define TOPPERS_cfg_inside_of_TDOM_KERNEL
-const unsigned_t TOPPERS_cfg_valueof_DOMAIN_373 = ( unsigned_t ) ( TDOM_KERNEL );
-#line 13 "tEV3Sample.cfg"
-const unsigned_t TOPPERS_cfg_static_api_373 = 373;
-const char TOPPERS_cfg_valueof_module_373[] = "libmruby.a"; 
+const unsigned_t TOPPERS_cfg_valueof_DOMAIN_263 = ( unsigned_t ) ( TDOM_KERNEL );
+#line 13 "mruby_call.cfg"
+const unsigned_t TOPPERS_cfg_static_api_263 = 263;
+const char TOPPERS_cfg_valueof_module_263[] = "libmruby.a"; 
 #ifndef TOPPERS_cfg_inside_of_TDOM_KERNEL
 
-#line 14 "tEV3Sample.cfg"
+#line 14 "mruby_call.cfg"
 #error syntax error
 #endif
 #undef TOPPERS_cfg_inside_of_TDOM_KERNEL
@@ -2480,22 +2130,22 @@ const unsigned_t TOPPERS_cfg_valueof_TDOM_KERNEL = ( unsigned_t ) (-1);
 
 #endif
 #define TOPPERS_cfg_inside_of_TDOM_KERNEL
-const unsigned_t TOPPERS_cfg_valueof_DOMAIN_374 = ( unsigned_t ) ( TDOM_KERNEL );
+const unsigned_t TOPPERS_cfg_valueof_DOMAIN_264 = ( unsigned_t ) ( TDOM_KERNEL );
 #line 7 "zmodem/zmodem.cfg"
-const unsigned_t TOPPERS_cfg_static_api_374 = 374;
+const unsigned_t TOPPERS_cfg_static_api_264 = 264;
 #define ZMODEM_RECV_TASK	(<>)
 
 #line 7 "zmodem/zmodem.cfg"
-const unsigned_t TOPPERS_cfg_valueof_tskatr_374 = ( unsigned_t )( TA_NULL ); const signed_t TOPPERS_cfg_valueof_itskpri_374 = ( signed_t )( TMIN_APP_TPRI ); const unsigned_t TOPPERS_cfg_valueof_stksz_374 = ( unsigned_t )( STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_375 = ( unsigned_t ) ( TDOM_KERNEL );
+const unsigned_t TOPPERS_cfg_valueof_tskatr_264 = ( unsigned_t )( TA_NULL ); const signed_t TOPPERS_cfg_valueof_itskpri_264 = ( signed_t )( TMIN_APP_TPRI ); const unsigned_t TOPPERS_cfg_valueof_stksz_264 = ( unsigned_t )( STACK_SIZE ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_265 = ( unsigned_t ) ( TDOM_KERNEL );
 #line 9 "zmodem/zmodem.cfg"
-const unsigned_t TOPPERS_cfg_static_api_375 = 375;
-const char TOPPERS_cfg_valueof_module_375[] = "zmodem-toppers.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_375 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_375 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_375 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_375 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_376 = ( unsigned_t ) ( TDOM_KERNEL );
+const unsigned_t TOPPERS_cfg_static_api_265 = 265;
+const char TOPPERS_cfg_valueof_module_265[] = "zmodem-toppers.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_265 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_265 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_265 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_265 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_266 = ( unsigned_t ) ( TDOM_KERNEL );
 #line 10 "zmodem/zmodem.cfg"
-const unsigned_t TOPPERS_cfg_static_api_376 = 376;
-const char TOPPERS_cfg_valueof_module_376[] = "crc16.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_376 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_376 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_376 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_376 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_377 = ( unsigned_t ) ( TDOM_KERNEL );
+const unsigned_t TOPPERS_cfg_static_api_266 = 266;
+const char TOPPERS_cfg_valueof_module_266[] = "crc16.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_266 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_266 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_266 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_266 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_DOMAIN_267 = ( unsigned_t ) ( TDOM_KERNEL );
 #line 11 "zmodem/zmodem.cfg"
-const unsigned_t TOPPERS_cfg_static_api_377 = 377;
-const char TOPPERS_cfg_valueof_module_377[] = "crc32.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_377 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_377 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_377 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_377 = ( unsigned_t )( TACP_KERNEL ); 
+const unsigned_t TOPPERS_cfg_static_api_267 = 267;
+const char TOPPERS_cfg_valueof_module_267[] = "crc32.o"; const unsigned_t TOPPERS_cfg_valueof_acptn1_267 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn2_267 = ( unsigned_t )( TACP_SHARED ); const unsigned_t TOPPERS_cfg_valueof_acptn3_267 = ( unsigned_t )( TACP_KERNEL ); const unsigned_t TOPPERS_cfg_valueof_acptn4_267 = ( unsigned_t )( TACP_KERNEL ); 
 #ifndef TOPPERS_cfg_inside_of_TDOM_KERNEL
 
 #line 13 "zmodem/zmodem.cfg"

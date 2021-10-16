@@ -1,7 +1,8 @@
-//#include "mbed_debug.h"
-
+//#include "../mbed-os/platform/include/platform/mbed_debug.h"
+#include <stdio.h>
 #define NOT_IMPLEMENTED_SYMBOL(SYM) void SYM() { debug("%s called.\r\n", __FUNCTION__); }
 
+//typedef struct { int dummy; } va_list;
 NOT_IMPLEMENTED_SYMBOL(abort)
 NOT_IMPLEMENTED_SYMBOL(_sbrk)
 //NOT_IMPLEMENTED_SYMBOL(_exit)

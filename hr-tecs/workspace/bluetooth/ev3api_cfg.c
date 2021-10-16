@@ -1,5 +1,5 @@
 #include <kernel.h>
-#include "tEV3Sample.h"
+#include "mruby_call.h"
 #include "csl.h"
 #include "chip_timer.h"
 #include "syssvc/syslog.h"
@@ -11,7 +11,6 @@
 #include "api.cfg.h"
 #include "cb_type_only.h"
 #include "tTask_tecsgen.h"
-#include "tCyclicHandler_tecsgen.h"
 #include "platform_interface_layer.h"
 
 

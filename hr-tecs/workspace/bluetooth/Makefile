@@ -57,7 +57,7 @@ BUILD_LOADER = 1
 
 #
 # SDのドライブ文字を指定
-SD_DIR = /cygdrive/D/
+SD_DIR = /cygdrive/E/
 
 #
 #  ターゲット略称の定義
@@ -68,8 +68,8 @@ MRUBY_DIR = ../mruby_app
 # RUNNING_BODY = ev3way
  RUNNING_BODY = etrobo
 
-# RUNNING_BODY_TIRE = normal
- RUNNING_BODY_TIRE = big
+ RUNNING_BODY_TIRE = normal
+ #RUNNING_BODY_TIRE = big
 
 PARAM_NAME = parameter.rb
 ifeq ($(RUNNING_BODY),ev3way)
@@ -273,7 +273,7 @@ CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 #
 #  アプリケーションプログラムに関する定義
 #
-APPLNAME = tEV3Sample
+APPLNAME = mruby_call
 APPLDIR = ../bluetooth
 APPL_CFG = $(APPLNAME).cfg
 ifeq ($(RUNNING_BODY_TIRE),big)
@@ -624,7 +624,7 @@ tecs-gen-templ.timestamp: $(APPL_CDL) $(TECS_IMPORTS)
 	$(call print_cmd, "TECSGEN", $<)
 	$(TECSGEN) -R -D TECSGEN -D TECS_CPP \
 					--generate-all-template \
-					-I$(TECSGEN_DIR)/tecslib/plugin $(INCLUDES) $(APPL_CDL)
+					-I$(TECSGEN_DIR)/tecslib/plugin $(INCLUDES) mruby_call.cdl#$(APPL_CDL)
 	touch tecs-gen-templ.timestamp
 
 .PHONY: tecs-gen-templ

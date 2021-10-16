@@ -33,4 +33,4 @@
 /* va_list is not supported in C_parser.y.rb */
 typedef struct { int dummy; } va_list;
 
-#include "tEV3Platform.h"
+#include "tecs_mruby.h"

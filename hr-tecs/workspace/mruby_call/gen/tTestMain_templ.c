@@ -14,11 +14,10 @@
  *   void           cTECS2MrubyVM_init( );
  *   mrb_state*     cTECS2MrubyVM_get_mrb( );
  *   void           cTECS2MrubyVM_fin( );
- *   mrb_value*     cTECS2MrubyVM_instance_create( );
  * call port: cBody2 signature: sShimo context:task
  *   void           cBody2_mcall_lcd( const char* x );
  * call port: cBody3 signature: sRyo context:task
- *   char           cBody3_hyoji( );
+ *   void           cBody3_hyoji( );
  *
  * #[</PREAMBLE>]# */
 

@@ -7,6 +7,8 @@ DUMMY=$(shell )
 OBJDIR=build
 KERNELDIR=../..
 
+           
+
 # Tools
 GCC_TARGET = arm-none-eabi
 AR = $(GCC_TARGET)-ar
@@ -41,7 +43,24 @@ CFLAGS += -I${DIR}/mbed-os \
 		  -I${DIR}/mbed-os/hal/hal \
 		  -I${DIR}/mbed-os/platform \
 		  -I${DIR}/mbed-os/rtos \
-		  -I${DIR}/mbed-os/drivers
+		  -I${DIR}/mbed-os/drivers \
+		  -I${DIR}/mbed-os/connectivity/lwipstack/lwip/src/include \
+		  -I$(DIR)/mbed-os/connectivity/lwipstack/include/lwipstack \
+		  -I$(DIR)/mbed-os/connectivity/netsocket/include/netsocket \
+		  -I$(DIR)/mbed-os/platform/include/platform \
+		  -I$(DIR)/mbed-os/cmsis/CMSIS_5/CMSIS/RTOS2/include \
+		  -I$(DIR)/mbed-os/connectivity/lwipstack/lwip-sys \
+		  -I$(DIR)/mbed-os/platform/include \
+		  -I$(DIR)/mbed-os/rtos/include/rtos/internal \
+		  -I$(DIR)/mbed-os/cmsis/device/rtos/include \
+		  -I$(DIR)/mbed-os/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/include \
+		  -I$(DIR)/mbed-os/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/Config \
+		  -I$(DIR)/mbed-os/UNITTESTS/target_h/rtos/include/rtos/internal \
+		  -I$(DIR)/mbed-os/targets/TARGET_ARM_FM \
+		  -I$(DIR)/mbed-os/targets/TARGET_ARM_SSG \
+		  -I$(DIR)/mbed-os/targets/TARGET_Analog_Devices \
+		  -I$(DIR)/mbed-os/targets/TARGET_TOSHIBA \
+		  -I$(DIR)/mbed-os/targets/TARGET_ARM_FM/TARGET_FVP_MPS2/TARGET_FVP_MPS2_M0/device
 ALL_CXX_OBJS += mbed-os/platform/retarget.o \
 				mbed-os/drivers/FileBase.o \
 				mbed-os/drivers/FileLike.o \
@@ -81,7 +100,7 @@ endef
 $(LIBRARY_FILE): $(ALL_OBJS) $(ALL_CXX_OBJS)
 	$(call print_cmd, "AR", $@)
 	@cd $(OBJDIR) && \
-	$(AR) -rcs $@ $(ALL_OBJS) $(ALL_CXX_OBJS)
+	$(AR) -rcs $@ $(ALL_OBJS) $(ALL_CXX_OBJS) 
 	@#arm-none-eabi-g++  $(ALL_OBJS) $(ALL_CXX_OBJS)
 
 $(ALL_OBJS): %.o: %.c

@@ -20,7 +20,7 @@ struct tag_sRyo_VDES {
 
 /* シグニチャ関数テーブル #_SFT_# */
 struct tag_sRyo_VMT {
-    char           (*hyoji__T)( const struct tag_sRyo_VDES *edp );
+    void           (*hyoji__T)( const struct tag_sRyo_VDES *edp );
 };
 
 /* シグニチャディスクリプタ(動的結合用) #_SDES_# */
