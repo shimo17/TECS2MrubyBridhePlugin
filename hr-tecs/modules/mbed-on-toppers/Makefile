@@ -60,7 +60,10 @@ CFLAGS += -I${DIR}/mbed-os \
 		  -I$(DIR)/mbed-os/targets/TARGET_ARM_SSG \
 		  -I$(DIR)/mbed-os/targets/TARGET_Analog_Devices \
 		  -I$(DIR)/mbed-os/targets/TARGET_TOSHIBA \
-		  -I$(DIR)/mbed-os/targets/TARGET_ARM_FM/TARGET_FVP_MPS2/TARGET_FVP_MPS2_M0/device
+		  -I$(DIR)/mbed-os/targets/TARGET_ARM_FM/TARGET_FVP_MPS2/TARGET_FVP_MPS2_M0/device \
+		  -I$(DIR)/arch/ev3rt \
+		  -I$(DIR)/mbed-os/connectivity/lwipstack/lwip/src/include/lwip \
+		  -I$(DIR)/mbed-os/connectivity/lwipstack/lwip/src/core/ipv4
 ALL_CXX_OBJS += mbed-os/platform/retarget.o \
 				mbed-os/drivers/FileBase.o \
 				mbed-os/drivers/FileLike.o \
